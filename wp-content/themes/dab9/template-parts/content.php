@@ -7,53 +7,51 @@
  * @package dab9
  */
 
+	$agenzia = get_field('agenzia');
+	$anno = get_field('anno');
+	$cliente = get_field('cliente');
+ 	$ruolo = get_field('ruolo');
+ 	$url_video = get_field('url_video');
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+	<div class="container">
+		<div class="column">
+			<?php dab9_post_thumbnail(); ?>
+		</div>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
+		<div class="column">
+			<header class="entry-header">
 				<?php
-				dab9_posted_on();
-				dab9_posted_by();
+					the_title( '<h1 class="entry-title">', '</h1>' );
 				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+			</header><!-- .entry-header -->
 
-	<?php dab9_post_thumbnail(); ?>
+			<div class="entry-content">
+				<?php 
+					if (!empty($anno)): ?>
+						<p class="anno"><span class="info-label">Anno:</span> <b><?php echo $anno; ?></b></p>
+					<?php endif; 
+					if (!empty($cliente)): ?>
+						<p class="cliente"><span class="info-label">Cliente:</span> <b><?php echo $cliente; ?></b></p>
+					<?php endif; 
+					if (!empty($agenzia)): ?>
+						<p class="agenzia"><span class="info-label">Agenzia:</span> <b><?php echo $agenzia; ?></b></p>
+					<?php endif; 
+					if (!empty($ruolo)): ?>
+						<p class="ruolo"><span class="info-label">Ruolo:</span> <b><?php echo $ruolo; ?></b></p>
+					<?php endif;
+					if (!empty($url_video)): ?>
 
-	<div class="entry-content">
-		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'dab9' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+					<p>
+						<a class="video-link" href="<?php echo $url_video; ?>">Visualizza video ></a>
+					</p>
+					<?php endif; ?>
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'dab9' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php dab9_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+					<div class="description">
+						<?php echo get_the_content(); ?>
+					</div>
+				</div><!-- .entry-content -->
+		</div>
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->
