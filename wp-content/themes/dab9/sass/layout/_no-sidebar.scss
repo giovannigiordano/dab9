@@ -1,11 +1,22 @@
-.no-sidebar {
-	.content-area {
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
+.container {
+	margin: 0 auto;
+	max-width: 640px;
+}
+
+@media only screen and (min-width: 960px) {
+	.container {
+		max-width: 960px;
 	}
 
-	.site-main {
-		margin-right: 0;
+	.single-post {
+		article.post {
+			
+		}
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+	.container {
+		max-width: 1280px;
 	}
 }
