@@ -1,9 +1,4 @@
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-
 	ul {
 		display: none;
 		list-style: none;
@@ -50,7 +45,7 @@
 	}
 
 	li {
-		float: left;
+		flex: 1 1 auto;
 		position: relative;
 
 		&:hover > a,
@@ -59,7 +54,9 @@
 	}
 
 	a {
+		color: $color__text-nav;
 		display: block;
+		padding: 5px 10px;
 		text-decoration: none;
 	}
 
@@ -71,17 +68,28 @@
 }
 
 /* Small menu. */
+.menu-toggle {
+	background-color: $color__background-button;
+	border: 0;
+	font-weight: 700;
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
+	width: 100%;
 }
 
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
 	}
-	.main-navigation ul {
-		display: block;
+	.main-navigation {
+		flex: 0 0 auto;
+
+		ul {
+			display: flex;
+		}
 	}
 }
 

@@ -17,3 +17,7 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 
+
+# theme dist files
+wp-content/themes/dab9/style.css
+wp-content/themes/dab9/style.css.map

@@ -35,3 +35,12 @@ function dab9_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'dab9_pingback_header' );
+
+
+if ( function_exists( 'add_theme_support' ) ) { 
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 600, 600, array('center', 'center') ); // default Post Thumbnail dimensions (cropped)
+
+	// additional image sizes
+	add_image_size( 'card-thumb', 320, 320, array('center', 'center') ); 
+}
