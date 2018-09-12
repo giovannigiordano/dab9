@@ -6,15 +6,19 @@
   font-size: 1.25em;
   text-align: center;
   a {
-    color: $color__text-main;
+    color: $color__text-nav;
     letter-spacing: 0.1em;
     text-decoration: none;
     text-transform: uppercase;
   }
 
   a:visited {
-    color: $color__text-main;
+    color: $color__text-nav;
   }
+}
+
+#masthead {
+  background-color: #333333;
 }
 
 @media screen and (min-width: 37.5em) {
