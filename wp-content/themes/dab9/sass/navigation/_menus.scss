@@ -58,6 +58,10 @@
 		display: block;
 		padding: 5px 10px;
 		text-decoration: none;
+
+		&:visited {
+			color: $color__text-nav;
+		}
 	}
 
 	.current_page_item > a,
